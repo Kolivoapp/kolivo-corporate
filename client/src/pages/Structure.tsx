@@ -1,85 +1,126 @@
 /**
  * Corporate Structure Page
- * Design: Swiss Corporate Modernism - Institutional
+ * Design: Light Mode Institutional - Corporate Rich
  * Bilingual support (FR/EN)
  */
 
-import { motion } from "framer-motion";
-import { Building2, Globe, MapPin, FileText } from "lucide-react";
+import { Building2, Globe, MapPin, FileText, Layers } from "lucide-react";
 import { useLanguage } from "@/contexts/CorporateLanguageContext";
 
 export default function Structure() {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
-  const entityInfo = [
-    {
-      icon: FileText,
-      label: language === "fr" ? "Dénomination sociale" : "Legal Name",
-      value: "KOLIVO™ Technologies Inc.",
+  const content = {
+    en: {
+      tagline: "CORPORATE STRUCTURE",
+      title: "Legal Entity & Organization",
+      description: "KOLIVO™ Technologies Inc. is a Canadian corporation headquartered in Montréal, Québec. Our organizational structure supports efficient operations and clear accountability.",
+      legal: {
+        title: "Legal Entity Information",
+        items: [
+          { icon: FileText, label: "Legal Name", value: "KOLIVO™ Technologies Inc." },
+          { icon: Globe, label: "Jurisdiction", value: "Canada (Federal)" },
+          { icon: MapPin, label: "Headquarters", value: "Montréal, Québec, Canada" },
+          { icon: Building2, label: "Entity Type", value: "Private Corporation" }
+        ]
+      },
+      org: {
+        title: "Organizational Structure",
+        board: "Board of Directors",
+        ceo: "Chief Executive Officer",
+        departments: ["Operations", "Technology", "Finance"]
+      },
+      ecosystem: {
+        title: "Ecosystem Platforms",
+        description: "KOLIVO™ Technologies Inc. develops and operates an integrated ecosystem of digital platforms.",
+        platforms: [
+          { name: "KOLIVO™ Hub", desc: "Shared living management" },
+          { name: "Halo • ID", desc: "Secure identity" },
+          { name: "KOLIVO™ Nest", desc: "Property management" },
+          { name: "KOLIVO™ Seed", desc: "Community incubator" },
+          { name: "KOLIVO™ Lens", desc: "Business optimization" },
+          { name: "KOLIVO™ Forge", desc: "Development platform" }
+        ]
+      }
     },
-    {
-      icon: Globe,
-      label: language === "fr" ? "Juridiction" : "Jurisdiction",
-      value: t("structure.legal.jurisdiction"),
-    },
-    {
-      icon: MapPin,
-      label: language === "fr" ? "Siège social" : "Headquarters",
-      value: t("structure.legal.headquarters"),
-    },
-    {
-      icon: Building2,
-      label: language === "fr" ? "Type d'entité" : "Entity Type",
-      value: t("structure.legal.type"),
-    },
-  ];
+    fr: {
+      tagline: "STRUCTURE CORPORATIVE",
+      title: "Entité juridique et organisation",
+      description: "KOLIVO™ Technologies Inc. est une société canadienne dont le siège social est situé à Montréal, Québec. Notre structure organisationnelle soutient des opérations efficaces et une responsabilité claire.",
+      legal: {
+        title: "Informations sur l'entité juridique",
+        items: [
+          { icon: FileText, label: "Dénomination sociale", value: "KOLIVO™ Technologies Inc." },
+          { icon: Globe, label: "Juridiction", value: "Canada (Fédéral)" },
+          { icon: MapPin, label: "Siège social", value: "Montréal, Québec, Canada" },
+          { icon: Building2, label: "Type d'entité", value: "Société privée" }
+        ]
+      },
+      org: {
+        title: "Structure organisationnelle",
+        board: "Conseil d'administration",
+        ceo: "Président-directeur général",
+        departments: ["Opérations", "Technologie", "Finances"]
+      },
+      ecosystem: {
+        title: "Plateformes de l'écosystème",
+        description: "KOLIVO™ Technologies Inc. développe et exploite un écosystème intégré de plateformes numériques.",
+        platforms: [
+          { name: "KOLIVO™ Hub", desc: "Gestion de la vie partagée" },
+          { name: "Halo • ID", desc: "Identité sécurisée" },
+          { name: "KOLIVO™ Nest", desc: "Gestion immobilière" },
+          { name: "KOLIVO™ Seed", desc: "Incubateur communautaire" },
+          { name: "KOLIVO™ Lens", desc: "Optimisation des affaires" },
+          { name: "KOLIVO™ Forge", desc: "Plateforme de développement" }
+        ]
+      }
+    }
+  };
+
+  const c = content[language];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="py-20 lg:py-32 bg-navy text-white">
+      <section className="hero hero-accent pt-24">
         <div className="container">
           <div className="max-w-3xl">
-            <p className="text-primary text-sm font-medium uppercase tracking-wider mb-4">
-              {t("structure.tagline")}
+            <p className="section-label mb-4">
+              {c.tagline}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {t("structure.title")}
+            <h1 className="text-4xl md:text-5xl font-semibold text-foreground leading-tight mb-6">
+              {c.title}
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed">
-              {t("structure.description")}
+            <p className="text-xl text-foreground-muted leading-relaxed">
+              {c.description}
             </p>
           </div>
         </div>
       </section>
 
       {/* Legal Entity */}
-      <section className="py-20 lg:py-32 bg-background">
+      <section className="section">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-8">
-              {t("structure.legal.title")}
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-8">
+              {c.legal.title}
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {entityInfo.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-muted/30 rounded-lg p-6 flex items-start gap-4"
+            <div className="grid md:grid-cols-2 gap-4">
+              {c.legal.items.map((item, index) => (
+                <div
+                  key={index}
+                  className="card p-5 flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-5 h-5 text-slate-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
                       {item.label}
                     </h3>
-                    <p className="text-muted-foreground">{item.value}</p>
+                    <p className="text-foreground-muted">{item.value}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -87,42 +128,43 @@ export default function Structure() {
       </section>
 
       {/* Organization Chart */}
-      <section className="py-20 lg:py-32 bg-muted/30">
+      <section className="section section-alt">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-8 text-center">
-              {language === "fr" ? "Structure organisationnelle" : "Organizational Structure"}
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-8 text-center">
+              {c.org.title}
             </h2>
-            <div className="bg-card border border-border rounded-lg p-12 text-center">
-              <div className="space-y-8">
-                <div className="bg-navy text-white rounded-lg p-6 max-w-md mx-auto">
+            <div className="card p-10">
+              <div className="space-y-6">
+                {/* Board */}
+                <div className="bg-slate-900 text-white rounded-lg p-5 max-w-sm mx-auto text-center">
                   <h3 className="font-semibold">
-                    {language === "fr" ? "Conseil d'administration" : "Board of Directors"}
+                    {c.org.board}
                   </h3>
                 </div>
-                <div className="w-px h-8 bg-border mx-auto" />
-                <div className="bg-primary/10 rounded-lg p-6 max-w-md mx-auto">
+                
+                {/* Connector */}
+                <div className="w-px h-6 bg-slate-300 mx-auto" />
+                
+                {/* CEO */}
+                <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-5 max-w-sm mx-auto text-center">
                   <h3 className="font-semibold text-foreground">
-                    {language === "fr" ? "Président-directeur général" : "Chief Executive Officer"}
+                    {c.org.ceo}
                   </h3>
                 </div>
-                <div className="w-px h-8 bg-border mx-auto" />
-                <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-                  <div className="bg-muted/50 rounded-lg p-4">
-                    <h4 className="font-medium text-sm text-foreground">
-                      {language === "fr" ? "Opérations" : "Operations"}
-                    </h4>
-                  </div>
-                  <div className="bg-muted/50 rounded-lg p-4">
-                    <h4 className="font-medium text-sm text-foreground">
-                      {language === "fr" ? "Technologie" : "Technology"}
-                    </h4>
-                  </div>
-                  <div className="bg-muted/50 rounded-lg p-4">
-                    <h4 className="font-medium text-sm text-foreground">
-                      {language === "fr" ? "Finances" : "Finance"}
-                    </h4>
-                  </div>
+                
+                {/* Connector */}
+                <div className="w-px h-6 bg-slate-300 mx-auto" />
+                
+                {/* Departments */}
+                <div className="grid md:grid-cols-3 gap-4 max-w-xl mx-auto">
+                  {c.org.departments.map((dept, index) => (
+                    <div key={index} className="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center">
+                      <h4 className="font-medium text-sm text-foreground">
+                        {dept}
+                      </h4>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -131,30 +173,25 @@ export default function Structure() {
       </section>
 
       {/* Ecosystem Platforms */}
-      <section className="py-20 lg:py-32 bg-background">
+      <section className="section">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-4 text-center">
-              {language === "fr" ? "Plateformes de l'écosystème" : "Ecosystem Platforms"}
-            </h2>
-            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              {language === "fr" 
-                ? "KOLIVO™ Technologies Inc. développe et exploite un écosystème intégré de plateformes numériques."
-                : "KOLIVO™ Technologies Inc. develops and operates an integrated ecosystem of digital platforms."
-              }
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { name: "KOLIVO™ Hub", desc: language === "fr" ? "Gestion de la vie partagée" : "Shared living management" },
-                { name: "Halo • ID", desc: language === "fr" ? "Identité sécurisée" : "Secure identity" },
-                { name: "KOLIVO™ Nest", desc: language === "fr" ? "Gestion immobilière" : "Property management" },
-                { name: "KOLIVO™ Seed", desc: language === "fr" ? "Incubateur communautaire" : "Community incubator" },
-                { name: "KOLIVO™ Lens", desc: language === "fr" ? "Optimisation des affaires" : "Business optimization" },
-                { name: "KOLIVO™ Forge", desc: language === "fr" ? "Plateforme de développement" : "Development platform" },
-              ].map((platform) => (
-                <div key={platform.name} className="bg-muted/30 rounded-lg p-6">
-                  <h3 className="font-semibold text-foreground mb-2">{platform.name}</h3>
-                  <p className="text-sm text-muted-foreground">{platform.desc}</p>
+            <div className="section-header">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Layers className="w-6 h-6 text-emerald-600" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
+                  {c.ecosystem.title}
+                </h2>
+              </div>
+              <p className="section-description">
+                {c.ecosystem.description}
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {c.ecosystem.platforms.map((platform, index) => (
+                <div key={index} className="card p-5">
+                  <h3 className="font-semibold text-foreground mb-1">{platform.name}</h3>
+                  <p className="text-sm text-foreground-muted">{platform.desc}</p>
                 </div>
               ))}
             </div>

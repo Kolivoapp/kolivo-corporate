@@ -129,18 +129,18 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-slate-900 text-white">
+      <section className="hero hero-accent pt-24">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-emerald-400 font-medium tracking-widest text-sm mb-4">
+            <p className="section-label mb-4">
               {t.hero.tagline}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-6">
               {t.hero.title}
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="text-xl text-foreground-muted max-w-2xl mx-auto">
               {t.hero.description}
             </p>
           </div>
@@ -148,7 +148,7 @@ export default function Contact() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
+      <section className="section">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16">

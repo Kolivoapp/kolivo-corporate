@@ -1,14 +1,13 @@
 /**
  * Corporate Overview Page - KOLIVO™ Technologies Inc.
- * Design: Premium Institutional - Executive-level presentation
+ * Design: Light Mode Institutional - Corporate Rich
  * Bilingual support (FR/EN)
  */
 
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Building2, Users, Shield, Briefcase } from "lucide-react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/CorporateLanguageContext";
+import { CDN } from "@/lib/cdn";
 
 export default function Overview() {
   const { language } = useLanguage();
@@ -120,238 +119,177 @@ export default function Overview() {
 
   const t = content[language];
 
+  const navIcons = [Building2, Shield, Briefcase, Users];
+
   return (
-    <div className="min-h-screen">
-      {/* Hero - Clean, Authoritative */}
-      <section className="min-h-[70vh] flex items-center bg-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-        </div>
-        <div className="container relative z-10 py-20">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <p className="text-primary font-medium tracking-widest text-sm mb-6">
+    <div className="min-h-screen bg-background">
+      {/* Hero - Light Mode Institutional */}
+      <section className="hero hero-accent pt-24">
+        <div className="container">
+          <div className="max-w-3xl">
+            <p className="section-label mb-4">
               {t.hero.tagline}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-6">
               {t.hero.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl">
+            <p className="text-xl text-foreground-muted leading-relaxed">
               {t.hero.description}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Founder Section */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="section">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Photo */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
+            <div className="relative">
               <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-[#22d3ee]/20 rounded-2xl transform rotate-3" />
                 <img 
                   src="/images/lou-hebert.jpg" 
                   alt={t.founder.name}
-                  className="relative w-full h-full object-cover rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
-                  style={{ filter: 'grayscale(100%) sepia(20%) hue-rotate(150deg) saturate(80%)' }}
+                  className="w-full h-full object-cover rounded-xl shadow-lg"
                 />
-                <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-lg">
+                <div className="absolute -bottom-4 -right-4 bg-slate-900 text-white px-5 py-3 rounded-lg shadow-lg">
                   <p className="font-medium text-sm">{t.founder.location}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-primary font-medium tracking-widest text-sm mb-4">
+            <div>
+              <p className="section-label mb-3">
                 {t.founder.tagline}
               </p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
                 {t.founder.title}
               </h2>
               <div className="mb-6">
-                <h3 className="font-display text-2xl font-semibold text-foreground">
+                <h3 className="text-2xl font-semibold text-foreground">
                   {t.founder.name}
                 </h3>
-                <p className="text-primary font-medium">
+                <p className="text-lg text-emerald-600 font-medium">
                   {t.founder.role}
                 </p>
               </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-foreground-muted leading-relaxed">
                 {t.founder.bio}
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Vision & Principles */}
-      <section className="py-24 lg:py-32 bg-muted/30">
+      <section className="section section-alt">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="text-primary font-medium tracking-widest text-sm mb-4">
+          <div className="section-header">
+            <p className="section-label">
               {t.vision.tagline}
             </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+            <h2 className="section-title">
               {t.vision.title}
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="section-description">
               {t.vision.text}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {t.vision.principles.map((principle, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-navy flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">{index + 1}</span>
+                <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-slate-900 flex items-center justify-center">
+                  <span className="text-xl font-bold text-white">{index + 1}</span>
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
                   {principle.title}
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-foreground-muted text-sm">
                   {principle.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Ecosystem Overview */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="section">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="text-primary font-medium tracking-widest text-sm mb-4">
+          <div className="section-header">
+            <p className="section-label">
               {t.ecosystem.tagline}
             </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+            <h2 className="section-title">
               {t.ecosystem.title}
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="section-description">
               {t.ecosystem.description}
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {t.ecosystem.platforms.map((platform, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="bg-muted/50 border border-border/50 rounded-lg px-6 py-4 hover:border-primary/30 transition-colors"
+                className="card px-5 py-4"
               >
                 <p className="font-semibold text-foreground text-sm">{platform.name}</p>
-                <p className="text-xs text-muted-foreground">{platform.desc}</p>
-              </motion.div>
+                <p className="text-xs text-foreground-muted">{platform.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Navigation Cards */}
-      <section className="py-24 lg:py-32 bg-navy text-white">
+      <section className="section section-alt">
         <div className="container">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="/governance">
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all cursor-pointer group h-full"
-              >
-                <h3 className="font-display text-lg font-semibold mb-2 flex items-center justify-between">
-                  {t.nav.governance}
-                  <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p className="text-white/60 text-sm">
-                  {t.nav.governanceDesc}
-                </p>
-              </motion.div>
-            </Link>
-            <Link href="/compliance">
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all cursor-pointer group h-full"
-              >
-                <h3 className="font-display text-lg font-semibold mb-2 flex items-center justify-between">
-                  {t.nav.compliance}
-                  <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p className="text-white/60 text-sm">
-                  {t.nav.complianceDesc}
-                </p>
-              </motion.div>
-            </Link>
-            <Link href="/investors">
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all cursor-pointer group h-full"
-              >
-                <h3 className="font-display text-lg font-semibold mb-2 flex items-center justify-between">
-                  {t.nav.investors}
-                  <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p className="text-white/60 text-sm">
-                  {t.nav.investorsDesc}
-                </p>
-              </motion.div>
-            </Link>
-            <Link href="/legal">
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all cursor-pointer group h-full"
-              >
-                <h3 className="font-display text-lg font-semibold mb-2 flex items-center justify-between">
-                  {t.nav.legal}
-                  <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p className="text-white/60 text-sm">
-                  {t.nav.legalDesc}
-                </p>
-              </motion.div>
-            </Link>
+            {[
+              { href: "/governance", title: t.nav.governance, desc: t.nav.governanceDesc },
+              { href: "/compliance", title: t.nav.compliance, desc: t.nav.complianceDesc },
+              { href: "/investors", title: t.nav.investors, desc: t.nav.investorsDesc },
+              { href: "/legal", title: t.nav.legal, desc: t.nav.legalDesc }
+            ].map((item, index) => {
+              const Icon = navIcons[index];
+              return (
+                <Link key={item.href} href={item.href}>
+                  <div className="card card-interactive h-full group cursor-pointer">
+                    <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4 group-hover:bg-slate-200 transition-colors">
+                      <Icon className="w-5 h-5 text-slate-600" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2 flex items-center justify-between">
+                      {item.title}
+                      <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-slate-600 group-hover:translate-x-1 transition-all" />
+                    </h3>
+                    <p className="text-sm text-foreground-muted">
+                      {item.desc}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-background border-t border-border/50">
+      <section className="py-12 bg-background border-t border-border">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <h2 className="font-display text-2xl font-semibold text-foreground">
+            <h2 className="text-xl font-semibold text-foreground">
               {t.cta.title}
             </h2>
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <a href="mailto:contact@kolivo.ca">
-                {t.cta.button}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
+            <a href="mailto:contact@kolivo.ca" className="btn btn-primary btn-lg">
+              {t.cta.button}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>

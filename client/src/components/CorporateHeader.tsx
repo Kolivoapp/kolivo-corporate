@@ -75,17 +75,17 @@ export default function CorporateHeader() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-white/10">
+    <header className="site-header">
       <nav className="container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <img 
-              src={CDN.logos.wordmark.white}
+              src={CDN.logos.wordmark.dark}
               alt="KOLIVO™" 
               className="h-5 w-auto"
             />
-            <span className="text-[10px] text-white/50 uppercase tracking-widest border-l border-white/20 pl-3">
+            <span className="text-[10px] text-slate-500 uppercase tracking-widest border-l border-slate-300 pl-3">
               Corporate
             </span>
           </Link>
@@ -96,10 +96,10 @@ export default function CorporateHeader() {
             <div className="relative" ref={aboutRef}>
               <button
                 onClick={() => setAboutOpen(!aboutOpen)}
-                className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                className={`nav-link flex items-center gap-1 ${
                   location.startsWith('/about')
-                    ? "text-white"
-                    : "text-white/60 hover:text-white"
+                    ? "active"
+                    : ""
                 }`}
               >
                 {c.about}
@@ -107,12 +107,12 @@ export default function CorporateHeader() {
               </button>
               
               {aboutOpen && (
-                <div className="absolute top-full left-0 mt-1 w-48 bg-slate-800 rounded-lg shadow-xl border border-white/10 py-2">
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
                   {c.aboutItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="block px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                      className="block px-4 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                       onClick={() => setAboutOpen(false)}
                     >
                       {item.name}
@@ -126,10 +126,10 @@ export default function CorporateHeader() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                className={`nav-link ${
                   isActive(item.href)
-                    ? "text-white"
-                    : "text-white/60 hover:text-white"
+                    ? "active"
+                    : ""
                 }`}
               >
                 {item.name}
@@ -141,7 +141,7 @@ export default function CorporateHeader() {
           <div className="flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors"
             >
               <Globe className="w-4 h-4" />
               <span className="text-sm font-medium uppercase">{language}</span>
@@ -149,14 +149,14 @@ export default function CorporateHeader() {
 
             <Link
               href="/contact"
-              className="hidden lg:block px-4 py-2 text-sm font-medium text-slate-900 bg-white rounded-lg hover:bg-white/90 transition-colors"
+              className="hidden lg:block btn btn-primary"
             >
               {c.contact}
             </Link>
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-white"
+              className="lg:hidden text-slate-900"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -170,10 +170,10 @@ export default function CorporateHeader() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-white/10">
+          <div className="lg:hidden py-4 border-t border-slate-200">
             <div className="flex flex-col gap-2">
               {/* About Section */}
-              <div className="px-4 py-2 text-xs font-semibold text-white/40 uppercase tracking-wider">
+              <div className="px-4 py-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">
                 {c.about}
               </div>
               {c.aboutItems.map((item) => (
@@ -182,8 +182,8 @@ export default function CorporateHeader() {
                   href={item.href}
                   className={`px-6 py-2 text-sm font-medium transition-colors ${
                     isActive(item.href)
-                      ? "text-white bg-white/10"
-                      : "text-white/60 hover:text-white"
+                      ? "text-slate-900 bg-slate-100"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -191,7 +191,7 @@ export default function CorporateHeader() {
                 </Link>
               ))}
               
-              <div className="border-t border-white/10 my-2" />
+              <div className="border-t border-slate-200 my-2" />
               
               {navigation.map((item) => (
                 <Link
@@ -199,8 +199,8 @@ export default function CorporateHeader() {
                   href={item.href}
                   className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
                     isActive(item.href)
-                      ? "text-white bg-white/10"
-                      : "text-white/60 hover:text-white hover:bg-white/5"
+                      ? "text-slate-900 bg-slate-100"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -208,11 +208,11 @@ export default function CorporateHeader() {
                 </Link>
               ))}
               
-              <div className="border-t border-white/10 my-2" />
+              <div className="border-t border-slate-200 my-2" />
               
               <Link
                 href="/contact"
-                className="mx-4 py-3 text-sm font-medium text-center text-slate-900 bg-white rounded-lg"
+                className="mx-4 py-3 text-sm font-medium text-center text-white bg-slate-900 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {c.contact}

@@ -1,23 +1,145 @@
+/**
+ * KOLIVO™ Corporate Design System 2026
+ * Style: Institutional Light Mode - Corporate Rich
+ * Based on: kolivo.ca design system
+ */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-/* 
- * KOLIVO™ Design System: Swiss Corporate Modernism
- * - Primary: Deep Navy (#1a2332) — authority, depth, institutional trust
- * - Secondary: Warm White (#fafaf8) — clarity, openness, premium
- * - Accent: Kolivo Mint (#2DD4A8) — precision, innovation
- * - Typography: Space Grotesk (headlines), Inter (body)
- */
+/* ============================================
+   KOLIVO NEO SANS - Custom Font from CDN
+   ============================================ */
+@font-face {
+  font-family: 'KOLIVO Neo Sans';
+  src: url('https://cdn.groupekolivo.com/03_TYPOGRAPHY/kolivo-neo-sans/variable/KolivoNeoSans-Variable.woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'KOLIVO Neo Sans';
+  src: url('https://cdn.groupekolivo.com/03_TYPOGRAPHY/kolivo-neo-sans/static/KolivoNeoSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KOLIVO Neo Sans';
+  src: url('https://cdn.groupekolivo.com/03_TYPOGRAPHY/kolivo-neo-sans/static/KolivoNeoSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KOLIVO Neo Sans';
+  src: url('https://cdn.groupekolivo.com/03_TYPOGRAPHY/kolivo-neo-sans/static/KolivoNeoSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KOLIVO Neo Sans';
+  src: url('https://cdn.groupekolivo.com/03_TYPOGRAPHY/kolivo-neo-sans/static/KolivoNeoSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS CUSTOM PROPERTIES - LIGHT MODE (CORPORATE)
+   ============================================ */
+:root {
+  /* === KOLIVO Brand === */
+  --kolivo-navy: #172638;
+  --kolivo-navy-light: #1e3a5f;
+  
+  /* === Product Colors === */
+  --kolivo-hub: #10B981;
+  --kolivo-nest: #F59E0B;
+  --kolivo-seed: #14B8A6;
+  --kolivo-halo: #DC2626;
+  --kolivo-vault: #64748B;
+  --kolivo-link: #0891B2;
+  --kolivo-gate: #CA8A04;
+  --kolivo-forge: #EA580C;
+  --kolivo-lens: #7C3AED;
+  --kolivo-atlas: #2563EB;
+  --kolivo-one: #0284C7;
+  --kolivo-studio: #8B5CF6;
+  
+  /* === Backgrounds === */
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  --background-muted: #e2e8f0;
+  
+  /* === Foreground === */
+  --foreground: #0f172a;
+  --foreground-secondary: #334155;
+  --foreground-muted: #64748b;
+  --foreground-subtle: #94a3b8;
+  
+  /* === Borders === */
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --border-emphasis: #cbd5e1;
+  
+  /* === Semantic === */
+  --primary: var(--kolivo-hub);
+  --primary-foreground: #ffffff;
+  
+  --card: #ffffff;
+  --card-foreground: var(--foreground);
+  
+  --popover: #ffffff;
+  --popover-foreground: var(--foreground);
+  
+  --secondary: var(--background-secondary);
+  --secondary-foreground: var(--foreground-secondary);
+  
+  --muted: var(--background-tertiary);
+  --muted-foreground: var(--foreground-muted);
+  
+  --accent: var(--background-secondary);
+  --accent-foreground: var(--foreground);
+  
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  
+  --input: var(--background-secondary);
+  --ring: var(--kolivo-hub);
+  
+  /* === Radius - MODERATE, not ultra-rounded === */
+  --radius: 8px;
+  --radius-sm: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  
+  /* === Charts === */
+  --chart-1: var(--kolivo-hub);
+  --chart-2: var(--kolivo-atlas);
+  --chart-3: var(--kolivo-lens);
+  --chart-4: var(--kolivo-nest);
+  --chart-5: var(--kolivo-seed);
+}
+
+/* ============================================
+   TAILWIND THEME
+   ============================================ */
 @theme inline {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: 'KOLIVO Neo Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'KOLIVO Neo Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -42,104 +164,53 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
   /* KOLIVO Custom Colors */
-  --color-navy: oklch(0.22 0.03 250);
-  --color-navy-light: oklch(0.28 0.03 250);
-  --color-mint: oklch(0.78 0.15 168);
-  --color-mint-dark: oklch(0.68 0.15 168);
-  --color-warm-white: oklch(0.98 0.005 90);
-  --color-slate: oklch(0.55 0.02 250);
+  --color-navy: #172638;
+  --color-navy-light: #1e3a5f;
 }
 
-:root {
-  --primary: oklch(0.78 0.15 168); /* Kolivo Mint */
-  --primary-foreground: oklch(0.22 0.03 250); /* Navy */
-  --sidebar-primary: oklch(0.78 0.15 168);
-  --sidebar-primary-foreground: oklch(0.22 0.03 250);
-  --chart-1: oklch(0.78 0.15 168);
-  --chart-2: oklch(0.68 0.15 168);
-  --chart-3: oklch(0.58 0.12 168);
-  --chart-4: oklch(0.48 0.10 168);
-  --chart-5: oklch(0.38 0.08 168);
-  --radius: 0.5rem;
-  --background: oklch(0.98 0.005 90); /* Warm White */
-  --foreground: oklch(0.22 0.03 250); /* Navy */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.03 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.03 250);
-  --secondary: oklch(0.95 0.005 90);
-  --secondary-foreground: oklch(0.35 0.03 250);
-  --muted: oklch(0.93 0.005 90);
-  --muted-foreground: oklch(0.55 0.02 250);
-  --accent: oklch(0.78 0.15 168);
-  --accent-foreground: oklch(0.22 0.03 250);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.01 250);
-  --input: oklch(0.88 0.01 250);
-  --ring: oklch(0.78 0.15 168);
-  --sidebar: oklch(0.98 0.005 90);
-  --sidebar-foreground: oklch(0.22 0.03 250);
-  --sidebar-accent: oklch(0.93 0.005 90);
-  --sidebar-accent-foreground: oklch(0.22 0.03 250);
-  --sidebar-border: oklch(0.88 0.01 250);
-  --sidebar-ring: oklch(0.78 0.15 168);
-}
-
-.dark {
-  --primary: oklch(0.78 0.15 168);
-  --primary-foreground: oklch(0.22 0.03 250);
-  --sidebar-primary: oklch(0.78 0.15 168);
-  --sidebar-primary-foreground: oklch(0.22 0.03 250);
-  --background: oklch(0.22 0.03 250); /* Navy */
-  --foreground: oklch(0.95 0.005 90); /* Light */
-  --card: oklch(0.26 0.03 250);
-  --card-foreground: oklch(0.95 0.005 90);
-  --popover: oklch(0.26 0.03 250);
-  --popover-foreground: oklch(0.95 0.005 90);
-  --secondary: oklch(0.30 0.03 250);
-  --secondary-foreground: oklch(0.85 0.005 90);
-  --muted: oklch(0.32 0.03 250);
-  --muted-foreground: oklch(0.65 0.02 250);
-  --accent: oklch(0.78 0.15 168);
-  --accent-foreground: oklch(0.22 0.03 250);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.35 0.03 250);
-  --input: oklch(0.35 0.03 250);
-  --ring: oklch(0.78 0.15 168);
-  --chart-1: oklch(0.78 0.15 168);
-  --chart-2: oklch(0.68 0.15 168);
-  --chart-3: oklch(0.58 0.12 168);
-  --chart-4: oklch(0.48 0.10 168);
-  --chart-5: oklch(0.38 0.08 168);
-  --sidebar: oklch(0.26 0.03 250);
-  --sidebar-foreground: oklch(0.95 0.005 90);
-  --sidebar-accent: oklch(0.32 0.03 250);
-  --sidebar-accent-foreground: oklch(0.95 0.005 90);
-  --sidebar-border: oklch(0.35 0.03 250);
-  --sidebar-ring: oklch(0.78 0.15 168);
-}
-
+/* ============================================
+   BASE STYLES
+   ============================================ */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+    border-color: var(--border);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'KOLIVO Neo Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'KOLIVO Neo Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
   }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+
+  @media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+  }
+
+  @media (min-width: 1024px) {
+    h1 { font-size: 3.5rem; }
+  }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -153,70 +224,451 @@
   }
 }
 
+/* ============================================
+   COMPONENTS
+   ============================================ */
 @layer components {
+  /* Container */
   .container {
     width: 100%;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
+  }
+
+  /* Flex fix */
+  .flex {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* Header */
+  .site-header {
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .site-header.scrolled {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Navigation */
+  .nav-link {
+    color: var(--foreground-secondary);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--radius-sm);
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .nav-link:hover {
+    color: var(--foreground);
+    background: var(--background-secondary);
+  }
+
+  .nav-link.active {
+    color: var(--foreground);
+    background: var(--background-secondary);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius);
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--kolivo-navy);
+    color: white;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--kolivo-navy-light);
+  }
+
+  .btn-accent {
+    background: var(--kolivo-hub);
+    color: white;
+    border: none;
+  }
+
+  .btn-accent:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    background: var(--background);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    background: var(--background-secondary);
+    border-color: var(--border-emphasis);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--foreground-secondary);
+    border: none;
+  }
+
+  .btn-ghost:hover {
+    color: var(--foreground);
+    background: var(--background-secondary);
+  }
+
+  .btn-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--border-emphasis);
+  }
+
+  .card-interactive:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 4rem 0 5rem;
+    background: var(--background);
   }
 
   @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1280px;
+    .hero {
+      padding: 5rem 0 6rem;
     }
   }
 
-  /* KOLIVO Custom Components */
+  .hero-accent {
+    background: linear-gradient(180deg, var(--background-secondary) 0%, var(--background) 100%);
+  }
+
+  /* Sections */
+  .section {
+    padding: 4rem 0;
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding: 5rem 0;
+    }
+  }
+
+  .section-alt {
+    background: var(--background-secondary);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--kolivo-hub);
+    margin-bottom: 0.75rem;
+  }
+
   .section-number {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
     font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: oklch(0.78 0.15 168);
+    color: var(--kolivo-hub);
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, oklch(0.78 0.15 168) 0%, oklch(0.68 0.18 180) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
-  .bg-navy {
-    background-color: oklch(0.22 0.03 250);
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
   }
 
-  .bg-navy-light {
-    background-color: oklch(0.28 0.03 250);
+  .section-description {
+    color: var(--foreground-muted);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  /* Grid Layouts */
+  .grid-2 {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .grid-3 {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .grid-4 {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Product Cards */
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: all 0.2s;
+    height: 100%;
+  }
+
+  .product-card:hover {
+    border-color: var(--border-emphasis);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .product-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .product-name {
+    font-weight: 600;
+    font-size: 1.0625rem;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+  }
+
+  .product-description {
+    color: var(--foreground-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* Feature List */
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .feature-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--kolivo-hub);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .feature-text {
+    color: var(--foreground-secondary);
+    font-size: 0.9375rem;
+  }
+
+  /* Stats */
+  .stat-grid {
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .stat-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--foreground-muted);
+    font-size: 0.9375rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--kolivo-navy);
+    color: white;
+    padding: 4rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 2fr repeat(3, 1fr);
+    }
+  }
+
+  .footer-brand {
+    max-width: 280px;
+  }
+
+  .footer-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+
+  .footer-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+  }
+
+  .footer-link {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9375rem;
+    padding: 0.25rem 0;
+    transition: color 0.15s;
+  }
+
+  .footer-link:hover {
+    color: white;
+  }
+
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .footer-copyright {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.875rem;
+  }
+
+  /* Utilities */
+  .text-accent {
+    color: var(--kolivo-hub);
   }
 
   .text-navy {
-    color: oklch(0.22 0.03 250);
+    color: var(--kolivo-navy);
   }
 
-  .text-mint {
-    color: oklch(0.78 0.15 168);
+  .bg-accent {
+    background-color: var(--kolivo-hub);
   }
 
-  .border-mint {
-    border-color: oklch(0.78 0.15 168);
+  .bg-navy {
+    background-color: var(--kolivo-navy);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--kolivo-hub) 0%, var(--kolivo-link) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .hover-lift {
@@ -225,10 +677,13 @@
 
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px -12px oklch(0.22 0.03 250 / 0.15);
+    box-shadow: 0 12px 40px -12px rgba(23, 38, 56, 0.15);
   }
 }
 
+/* ============================================
+   UTILITIES
+   ============================================ */
 @layer utilities {
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out forwards;
@@ -257,4 +712,41 @@
       opacity: 1;
     }
   }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-emphasis);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-subtle);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--foreground);
+}
+
+/* ============================================
+   FOCUS
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--kolivo-hub);
+  outline-offset: 2px;
 }

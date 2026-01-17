@@ -82,18 +82,18 @@ export default function Founder() {
   const t = content[language];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-slate-900 text-white">
+      <section className="hero hero-accent pt-24">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-emerald-400 font-medium tracking-widest text-sm mb-4">
+            <p className="section-label mb-4">
               {t.hero.tagline}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
               {t.hero.title}
             </h1>
-            <p className="text-xl text-white/70">
+            <p className="text-xl text-foreground-muted">
               {t.hero.role}
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function Founder() {
       </section>
 
       {/* Letter Section */}
-      <section className="py-20">
+      <section className="section">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="grid md:grid-cols-[200px_1fr] gap-12 items-start">
@@ -161,13 +161,13 @@ export default function Founder() {
       </section>
 
       {/* Bio Section */}
-      <section className="py-20 bg-white">
+      <section className="section section-alt">
         <div className="container">
           <div className="max-w-3xl mx-auto">
-            <p className="text-emerald-600 font-medium tracking-widest text-sm mb-4">
+            <p className="section-label mb-4">
               {t.bio.tagline}
             </p>
-            <h2 className="font-display text-3xl font-bold text-slate-900 mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">
               {t.bio.title}
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
@@ -178,16 +178,16 @@ export default function Founder() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-slate-900 text-white">
+      <section className="section">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-display text-3xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
               {t.cta.title}
             </h2>
-            <p className="text-lg text-white/70 mb-8">
+            <p className="text-lg text-foreground-muted mb-8">
               {t.cta.description}
             </p>
-            <Button asChild size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white">
+            <Button asChild size="lg" className="btn btn-primary btn-lg">
               <Link href="/contact">
                 {t.cta.button}
                 <ArrowRight className="ml-2 h-4 w-4" />
