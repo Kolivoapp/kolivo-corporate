@@ -43,11 +43,11 @@ export default function Overview() {
         title: "Integrated Platforms",
         description: "Our ecosystem comprises specialized platforms, each designed to address specific needs while maintaining seamless interoperability.",
         platforms: [
-          { name: "HUB by KOLIVO™", desc: "Shared living management" },
-          { name: "Studio+ by KOLIVO™", desc: "Strategic consulting" },
-          { name: "GUARDO by KOLIVO™", desc: "Trust & compliance" },
-          { name: "PARTENARIO by KOLIVO™", desc: "Partner operations" },
-          { name: "HALO by KOLIVO™", desc: "Secure identity" }
+          { name: "KOLIVO™ Hub", desc: "Shared living management" },
+          { name: "Halo • ID", desc: "Secure identity" },
+          { name: "KOLIVO™ Nest", desc: "Property management" },
+          { name: "KOLIVO™ Seed", desc: "Community incubator" },
+          { name: "KOLIVO™ Lens", desc: "Business optimization" }
         ]
       },
       nav: {
@@ -94,11 +94,11 @@ export default function Overview() {
         title: "Plateformes intégrées",
         description: "Notre écosystème comprend des plateformes spécialisées, chacune conçue pour répondre à des besoins spécifiques tout en maintenant une interopérabilité transparente.",
         platforms: [
-          { name: "HUB by KOLIVO™", desc: "Gestion de la vie partagée" },
-          { name: "Studio+ by KOLIVO™", desc: "Conseil stratégique" },
-          { name: "GUARDO by KOLIVO™", desc: "Confiance et conformité" },
-          { name: "PARTENARIO by KOLIVO™", desc: "Opérations partenaires" },
-          { name: "HALO by KOLIVO™", desc: "Identité sécurisée" }
+          { name: "KOLIVO™ Hub", desc: "Gestion de la vie partagée" },
+          { name: "Halo • ID", desc: "Identité sécurisée" },
+          { name: "KOLIVO™ Nest", desc: "Gestion immobilière" },
+          { name: "KOLIVO™ Seed", desc: "Incubateur communautaire" },
+          { name: "KOLIVO™ Lens", desc: "Optimisation des affaires" }
         ]
       },
       nav: {

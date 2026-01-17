@@ -27,14 +27,16 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.cta": "Connect with KOLIVO™",
     
     // Products
-    "products.hub.title": "HUB by KOLIVO™",
-    "products.hub.desc": "The main application layer for your digital ecosystem",
-    "products.studio.title": "Studio+ by KOLIVO™",
-    "products.studio.desc": "Strategic consulting and delivery practice",
-    "products.guardo.title": "GUARDO by KOLIVO™",
-    "products.guardo.desc": "Trust, compliance, and incident management portal",
-    "products.partenario.title": "PARTENARIO by KOLIVO™",
-    "products.partenario.desc": "Partner operations and enablement portal",
+    "products.hub.title": "KOLIVO™ Hub",
+    "products.hub.desc": "Shared living management platform",
+    "products.halo.title": "Halo • ID",
+    "products.halo.desc": "Secure digital identity for the ecosystem",
+    "products.nest.title": "KOLIVO™ Nest",
+    "products.nest.desc": "Property management for shared residences",
+    "products.seed.title": "KOLIVO™ Seed",
+    "products.seed.desc": "Community project incubator",
+    "products.lens.title": "KOLIVO™ Lens",
+    "products.lens.desc": "Business process optimization",
     
     // Solutions
     "solutions.b2b.title": "B2B Solutions",
@@ -167,14 +169,16 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.cta": "Connectez-vous avec KOLIVO™",
     
     // Products
-    "products.hub.title": "HUB by KOLIVO™",
-    "products.hub.desc": "La couche applicative principale de votre écosystème numérique",
-    "products.studio.title": "Studio+ by KOLIVO™",
-    "products.studio.desc": "Pratique de conseil stratégique et de livraison",
-    "products.guardo.title": "GUARDO by KOLIVO™",
-    "products.guardo.desc": "Portail de confiance, conformité et gestion des incidents",
-    "products.partenario.title": "PARTENARIO by KOLIVO™",
-    "products.partenario.desc": "Portail d'opérations et d'habilitation des partenaires",
+    "products.hub.title": "KOLIVO™ Hub",
+    "products.hub.desc": "Plateforme de gestion de la vie partagée",
+    "products.halo.title": "Halo • ID",
+    "products.halo.desc": "Identité numérique sécurisée pour l'écosystème",
+    "products.nest.title": "KOLIVO™ Nest",
+    "products.nest.desc": "Gestion immobilière pour résidences partagées",
+    "products.seed.title": "KOLIVO™ Seed",
+    "products.seed.desc": "Incubateur de projets communautaires",
+    "products.lens.title": "KOLIVO™ Lens",
+    "products.lens.desc": "Optimisation des processus d'affaires",
     
     // Solutions
     "solutions.b2b.title": "Solutions B2B",

@@ -58,13 +58,17 @@ export default function Legal() {
                   {language === "fr" ? "Noms de produits" : "Product Names"}
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>HUB by KOLIVO™</li>
-                  <li>Studio+ by KOLIVO™</li>
-                  <li>GUARDO by KOLIVO™</li>
-                  <li>PARTENARIO by KOLIVO™</li>
-                  <li>CONNECTO by KOLIVO™</li>
-                  <li>HALO by KOLIVO™</li>
-                  <li>KOLIVAULT by KOLIVO™</li>
+                  <li>KOLIVO™ Hub</li>
+                  <li>Halo • ID</li>
+                  <li>KOLIVO™ Nest</li>
+                  <li>KOLIVO™ Seed</li>
+                  <li>KOLIVO™ Lens</li>
+                  <li>KOLIVO™ Forge</li>
+                  <li>KOLIVO™ Gate</li>
+                  <li>KOLIVO™ Link</li>
+                  <li>KOLIVO™ Atlas</li>
+                  <li>KOLIVO™ Vault</li>
+                  <li>KOLIVO™ Studio</li>
                 </ul>
               </div>
             </div>

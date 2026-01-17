@@ -145,12 +145,12 @@ export default function Structure() {
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { name: "HUB by KOLIVO™", desc: language === "fr" ? "Couche applicative principale" : "Main application layer" },
-                { name: "Studio+ by KOLIVO™", desc: language === "fr" ? "Conseil stratégique et livraison" : "Strategic consulting and delivery" },
-                { name: "GUARDO by KOLIVO™", desc: language === "fr" ? "Confiance et conformité" : "Trust and compliance" },
-                { name: "PARTENARIO by KOLIVO™", desc: language === "fr" ? "Opérations partenaires" : "Partner operations" },
-                { name: "CONNECTO by KOLIVO™", desc: language === "fr" ? "Engagement communautaire" : "Community engagement" },
-                { name: "HALO by KOLIVO™", desc: language === "fr" ? "Identité et confiance" : "Identity and trust" },
+                { name: "KOLIVO™ Hub", desc: language === "fr" ? "Gestion de la vie partagée" : "Shared living management" },
+                { name: "Halo • ID", desc: language === "fr" ? "Identité sécurisée" : "Secure identity" },
+                { name: "KOLIVO™ Nest", desc: language === "fr" ? "Gestion immobilière" : "Property management" },
+                { name: "KOLIVO™ Seed", desc: language === "fr" ? "Incubateur communautaire" : "Community incubator" },
+                { name: "KOLIVO™ Lens", desc: language === "fr" ? "Optimisation des affaires" : "Business optimization" },
+                { name: "KOLIVO™ Forge", desc: language === "fr" ? "Plateforme de développement" : "Development platform" },
               ].map((platform) => (
                 <div key={platform.name} className="bg-muted/30 rounded-lg p-6">
                   <h3 className="font-semibold text-foreground mb-2">{platform.name}</h3>

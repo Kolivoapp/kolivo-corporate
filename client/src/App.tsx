@@ -15,7 +15,13 @@ import Governance from "./pages/Governance";
 import Compliance from "./pages/Compliance";
 import Investors from "./pages/Investors";
 import Legal from "./pages/Legal";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+
+// About Pages
+import Founder from "./pages/about/Founder";
+import Story from "./pages/about/Story";
+import Mission from "./pages/about/Mission";
 
 function Router() {
   return (
@@ -26,6 +32,13 @@ function Router() {
       <Route path="/compliance" component={Compliance} />
       <Route path="/investors" component={Investors} />
       <Route path="/legal" component={Legal} />
+      <Route path="/contact" component={Contact} />
+      
+      {/* About Pages */}
+      <Route path="/about/founder" component={Founder} />
+      <Route path="/about/story" component={Story} />
+      <Route path="/about/mission" component={Mission} />
+      
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
